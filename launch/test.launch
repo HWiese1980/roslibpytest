@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="roslibpytest" name="pub" type="test_pub.py" output="screen" />
+    <node pkg="roslibpytest" name="sub" type="test_sub.py" output="screen" />
+</launch>

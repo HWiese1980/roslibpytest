@@ -10,7 +10,6 @@ reactor.timeout = lambda: 0.0001
 init_logging()
 
 ros = roslibpy.Ros("ws://localhost:9090")
-ros.run()
 
 
 def sub(msg):
@@ -23,8 +22,4 @@ def sub(msg):
 ts = roslibpy.Topic(ros, "/test", "std_msgs/Header", queue_length=1)
 ts.subscribe(sub)
 
-try:
-    while True:
-        time.sleep(0)
-except KeyboardInterrupt:
-    ros.terminate()
+ros.run_forever()
